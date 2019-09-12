@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../styles/App.css';
 import './footer.js'
 
 class App extends Component {
@@ -7,10 +7,11 @@ class App extends Component {
     return (
       <div className="App">
       HOLLOLOLOLO
-      <footer className ="Footer">
-WOLOLOLOLOLO
-      </footer>
+      <footer className ="footer">
+        WOLOLOLOLOLO
+        </footer>
       </div>
+
     );
       
   }
