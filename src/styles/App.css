@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #222;
+  background-color: #99CCCC;
   color: white;
 }
 
@@ -13,7 +13,16 @@
   font-size: large;
 }
 .footer {
-  font-size: large;
+  color: red;
+  background-color: #FF9933;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom:0;
+  right: 0;
+  height: 60px;
+  padding-bottom: 100px;
+  clear: both;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
