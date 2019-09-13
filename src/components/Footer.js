@@ -10,9 +10,9 @@ const Footer = () => {
     return (
         <div classname="App">
                 <a href = "https://github.com/outofmyelement" alt='' className={styles.gitcat}> git hub link</a>
-                <img src={linkedinimg} alt='' className={'gitcatt'}></img>
-                <img src={twitterbird} alt='' className={'gitcatt'}></img>
-                <img src={envelope} alt='' className={'gitcatt'}></img>   
+                <img src={linkedinimg} alt='' className={'icon'}></img>
+                <img src={twitterbird} alt='' className={'icon'}></img>
+                <img src={envelope} alt='' className={'icon'}></img>   
         </div>
     )
 }
