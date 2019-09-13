@@ -1,24 +1,21 @@
 .footer {
     color: black;
     background-color: #efbb35;
-    text-align: center;
     position: absolute;
     left: 0;
     bottom:0;
     right: 0;
-    height: 60px;
-    padding-bottom: 100px;
-    clear: both;
+    height:60px;
+    padding-bottom: 60px;
+    
   }
 
+  .gitcatt {
 
-
-.gitcatt {
-  height: 40px;
-  width: relative;
-  margin: auto;
-  padding-top: 60px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
+    height: 40px;
+    width: relative;
+    margin: auto;
+    padding-top: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }

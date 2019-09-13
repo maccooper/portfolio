@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import '../styles/App.css';
-import Footer from './footer.js'
+import Footer from './Footer.js'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-      HOLLOLOLOLO
         <Footer/>
       </div>
 
