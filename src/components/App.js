@@ -16,9 +16,7 @@ class App extends Component {
           <Wrapper/>
         </div>
 
-        <div className="Description">
         <Description/>
-        </div>
         
         <div className='footer'>
           <Footer />

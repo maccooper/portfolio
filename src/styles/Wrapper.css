@@ -1,19 +1,18 @@
 .Wrapper {
     background-color: grey;
     float: left;
-    margin-left: 50px;
-    margin-top: 100px;
-    width: 25%;
-    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profpic {
     border-radius: 100%;
     border: 5px solid black;
+
   }
   
   .button {
-    position: relative;
     color: white;
     border-radius:4px;
     border-color: black;
