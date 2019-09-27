@@ -22,3 +22,23 @@
   
   }
 
+  .octicon {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+    fill: black;
+  }
+  .octicon:hover {
+    fill: white;
+  }
+
+
+.Header-Link {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+
+}
