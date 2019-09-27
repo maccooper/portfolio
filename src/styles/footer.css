@@ -15,7 +15,6 @@
   .icon {
     height: 50px;
     width: relative;
-    margin: auto;
     padding-top: 60px;
     padding-left: 20px;
     padding-right: 20px;
@@ -24,17 +23,18 @@
 
   .octicon {
     height: 50px;
-    width: 50px;
+    width: relative;
     text-align: center;
     display: inline-block;
     fill: black;
+
   }
   .octicon:hover {
     fill: white;
   }
 
 
-.Header-Link {
+.header-link {
   height: 50px;
   width: 50px;
   display: inline-block;

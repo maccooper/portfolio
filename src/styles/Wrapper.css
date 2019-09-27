@@ -1,9 +1,13 @@
 .Wrapper {
-    background-color: grey;
+    width: 400px;
+    background-color: darkgrey;
     float: left;
-    display: flex;
     align-items: center;
+    margin-left:5%;
+    margin-top:5%;
     justify-content: center;
+    text-align: center;
+    border: 5px solid black;
 }
 
 .profpic {
@@ -14,12 +18,18 @@
   
   .resbutton {
     color: white;
-    border-radius:4px;
+    border-radius:500px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
     border-color: black;
     border-width: 3px;
-    background: grey;
+    background: darkgrey;
     font-size: 125%;
     font-weight: bold;
     width: 200px;
     height:50px;
+    text-align: center;
+  }
+
+  .resbutton:hover {
+    background: grey;
   }

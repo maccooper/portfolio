@@ -10,11 +10,8 @@ import Wrapper from './Wrapper.js'
 class App extends Component {
   render() {
     return (
-      <div classname='App'>
-
-        <div className='Wrapper'>
-          <Wrapper/>
-        </div>
+      <div>
+        <Wrapper/>
 
         <Description/>
         
