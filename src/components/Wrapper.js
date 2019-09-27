@@ -1,5 +1,5 @@
 import React from 'react';
-import Pdf from '../assets/Programming_Resume.pdf'
+import resume from '../assets/Programming_Resume.pdf'
 import '../styles/Wrapper.css'
 
 
@@ -9,8 +9,7 @@ const Wrapper = () => {
     return(
         <div className='Wrapper'>
             <img src={profpic} alt='' className='profpic'></img>
-            <button className='button'> uhh </button>
-            <a href={Pdf} target="_blank">Download Pdf</a>
+            <button onClick={() => window.location = resume } className='resbutton'> uhh </button>
         </div>
 
     )

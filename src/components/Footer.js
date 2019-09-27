@@ -3,7 +3,7 @@ import '../styles/footer.css'
 
 //import gitimg from '../assets/github_cat.png'
 import linkedinimg from '../assets/linkedin.svg'
-import twitterbird from '../assets/twitter_bird.png'
+import twitterbird from '../assets/twitter.svg'
 import envelope from '../assets/envelope.png'
 import githubcat from '../assets/Octicons.svg'
 
