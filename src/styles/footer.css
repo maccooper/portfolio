@@ -7,9 +7,7 @@
     bottom:0;
     right: 0;
     height:80px;
-    padding-bottom: 60px;
-    margin: auto;
- 
+
   }
 
   .icon {
@@ -23,7 +21,7 @@
 
   .octicon {
     height: 50px;
-    width: relative;
+    width: auto;
     text-align: center;
     display: inline-block;
     fill: black;
