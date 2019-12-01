@@ -1,4 +1,16 @@
 .Header {
-    padding: 60px;
+height:100%;
     background-color: orange;
+    width: 100%;
+
+}
+
+.mountain {
+
+    height: 50px;
+    width: relative;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+
 }

@@ -16,14 +16,12 @@ class App extends Component {
         <Wrapper/>
 
         <Description/>
-        
-        <div className='footer'>
-          <Footer />
+        <div className="Footer">
+        <Footer />
         </div>
-
       </div>
     );
-
+    
   }
 }
 

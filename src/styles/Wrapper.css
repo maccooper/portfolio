@@ -1,5 +1,5 @@
 .Wrapper {
-    width: 400px;
+    max-width: 400px;
     background-color: darkgrey;
     float: left;
     align-items: center;
@@ -8,12 +8,13 @@
     justify-content: center;
     text-align: center;
     border: 5px solid black;
+    vertical-align: middle;
 }
 
 .profpic {
     border-radius: 100%;
     border: 5px solid black;
-
+    max-width:300px;
   }
   
   .resbutton {
@@ -28,6 +29,8 @@
     width: 200px;
     height:50px;
     text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .resbutton:hover {
