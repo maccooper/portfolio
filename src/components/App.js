@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import Footer from './Footer.js'
 import Description from './Description.js'
-import Wrapper from './Wrapper.js'
+import HsContainer from './HsContainer'
 import Header from './Header.js'
 
 
@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Wrapper/>
+        <HsContainer/>
         <Description/>
         <Footer />
       </div>

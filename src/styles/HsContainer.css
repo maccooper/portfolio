@@ -1,5 +1,6 @@
-.Wrapper {
-    max-width: 400px;
+.HsContainer {
+    max-width: 22%;
+    height:400px;
     background-color: darkgrey;
     float: left;
     align-items: center;
@@ -8,13 +9,14 @@
     justify-content: center;
     text-align: center;
     border: 5px solid black;
-    vertical-align: middle;
+    vertical-align: center;
+    padding-top: 1%;
 }
 
 .profpic {
     border-radius: 100%;
     border: 5px solid black;
-    max-width:300px;
+    max-width:90%;
   }
   
   .resbutton {
@@ -26,11 +28,10 @@
     background: darkgrey;
     font-size: 125%;
     font-weight: bold;
-    width: 200px;
-    height:50px;
+    width: 70%;
+    height:15%;
     text-align: center;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 10px;
   }
 
   .resbutton:hover {
