@@ -60,6 +60,18 @@ export function TerminalHero() {
     if (el) el.scrollTop = el.scrollHeight
   }, [visibleLines, staticText, descText, cmdCharIdx, phase])
 
+  // Redirect scroll input to the page — terminal never scrolls, wheel always moves the site
+  useEffect(() => {
+    const el = bodyRef.current
+    if (!el) return
+    const redirect = (e: WheelEvent) => {
+      e.preventDefault()
+      window.scrollBy({ top: e.deltaY, left: e.deltaX })
+    }
+    el.addEventListener("wheel", redirect, { passive: false })
+    return () => el.removeEventListener("wheel", redirect)
+  }, [])
+
   // Phase: static — type through identity lines one character at a time
   useEffect(() => {
     if (phase !== "static") return
