@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { ArrowDown } from "lucide-react"
-import descriptionsData from "@/descriptions.json"
+import projectsData from "@/projects.json"
 
 type StaticLine =
   | { prefix: "~"; cmd: string }
@@ -11,20 +11,18 @@ type StaticLine =
 const STATIC_LINES: StaticLine[] = [
   { prefix: "~", cmd: "whoami" },
   { prefix: "", output: "Mac Cooper" },
-  { prefix: "~", cmd: "cat /etc/title" },
+  { prefix: "~", cmd: "echo $TITLE" },
   { prefix: "", output: "Software Engineer" },
   { prefix: "~", cmd: "echo $LOCATION" },
   { prefix: "", output: "British Columbia, Canada" },
-  { prefix: "~", cmd: 'grep -r "passion" ./interests/' },
-  { prefix: "", output: "Systems programming, interpreters, game engines, CLI tooling" },
+  { prefix: "~", cmd: "grep 'interests' README.md" },
+  { prefix: "", output: "## interests: algorithms, systems programming, compilers, graphics, security, game engines" },
 ]
 
-// Must match exactly what `bash show-projects.sh` produces.
-// Source of truth is descriptions.json — this derives from it at build time.
-const LOOP_CMD = 'ls projects/ | while read p; do jq -r ".$p" descriptions.json; sleep 1.5; done'
-const DESCRIPTIONS: string[] = (Object.entries(descriptionsData) as [string, unknown][])
-  .filter(([k]) => !k.startsWith("_"))
-  .map(([, v]) => v as string)
+// Source of truth is projects.json — this derives from it at build time.
+const LOOP_CMD = "jq -r '.[].description' projects.json"
+const DESCRIPTIONS: string[] = (projectsData as { name: string; description: string }[])
+  .map((p) => p.description)
 
 const SPEEDS = {
   cmd: 38,

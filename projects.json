@@ -1,0 +1,17 @@
+[
+  { "name": "spotify",     "description": "built an extension to Spotify" },
+  { "name": "shell",       "description": "built a mini shell in C" },
+  { "name": "avr",         "description": "wrote bare-metal firmware in Assembly" },
+  { "name": "webserver",   "description": "wrote an HTTP server in C" },
+  { "name": "raytracer",   "description": "built a ray tracer" },
+  { "name": "threads",     "description": "wrote a threaded airline check-in sim" },
+  { "name": "leetcode",    "description": "built local neovim/cli LeetCode tooling" },
+  { "name": "moviebox",    "description": "built a movie database API" },
+  { "name": "devdigest",   "description": "deployed a customizeable Hacker News filter site" },
+  { "name": "qr",          "description": "wrote QR code generation software" },
+  { "name": "iot",         "description": "built an IoT pipeline for live remote vehicle telemetry" },
+  { "name": "battlesnake", "description": "built an AI to play the game snake" },
+  { "name": "netflix",     "description": "rebuilt Netflix's movie recommendation classifier" },
+  { "name": "helix",       "description": "building a hex-grid strategy game in Go" },
+  { "name": "loanshark",   "description": "built a debt-tracking app for friends" }
+]

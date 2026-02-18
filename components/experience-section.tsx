@@ -4,20 +4,20 @@ import { useEffect, useRef, useState } from "react"
 
 const EXPERIENCES = [
   {
-    role: "Software Engineering Intern",
+    role: "Software Engineer",
     company: "Dometic",
     period: "Previous",
     description:
-      "Worked on embedded telemetry and IoT systems. Built firmware-level data pipelines for real-time sensor telemetry, interfacing directly with hardware protocols and constrained runtime environments.",
-    tech: ["C", "Embedded C", "IoT", "MQTT", "Telemetry", "Firmware"],
+      "Wrote embedded C++ for microcontrollers in fleet trucks — capturing solar yield, location, and power draw, then transmitting over satellite for centralized real-time monitoring. Built the full pipeline: firmware on the device, through Azure IoT Hub and Data Analytics, into CosmosDB. The project was mine end to end. No one was walking me through it.",
+    tech: ["C++", "Azure IoT", "CosmosDB", "SQL", "Python", "Power BI"],
   },
   {
-    role: "Software Engineering Intern",
+    role: "Software Engineer",
     company: "Eddyfi Robotics",
     period: "Previous",
     description:
-      "Developed ETL pipelines and inventory management tooling. Designed data transformation workflows that integrated robotic inspection data with enterprise inventory systems.",
-    tech: ["Python", "ETL", "SQL", "Data Pipelines", "Robotics"],
+      "Joined after Eddyfi acquired Inuktun. Built ETL pipelines to merge two companies' inventory systems into a standardized format — the kind of data work that breaks if you're not precise about it. Also built a QR-based part retrieval system tied into the inventory backend to make warehouse lookups less painful.",
+    tech: ["Python", "SQL", "VB", "C#"],
   },
 ]
 
@@ -66,11 +66,11 @@ export function ExperienceSection() {
 
               <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between mb-3">
                 <div>
-                  <h3 className="text-foreground text-sm md:text-base font-medium">
-                    {exp.role}
-                  </h3>
-                  <p className="text-primary text-sm font-semibold">
+                  <h3 className="text-primary text-sm md:text-base font-semibold">
                     {exp.company}
+                  </h3>
+                  <p className="text-foreground text-xs">
+                    {exp.role}
                   </p>
                 </div>
                 <span className="text-muted-foreground text-xs font-mono">
