@@ -166,7 +166,7 @@ export function TerminalHero() {
             <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
             <div className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
             <div className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-            <span className="ml-3 text-xs text-muted-foreground">mac@cooper ~</span>
+            <span className="ml-3 text-xs text-muted-foreground">maccooper@dev ~</span>
           </div>
         </div>
 
