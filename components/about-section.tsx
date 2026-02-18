@@ -59,7 +59,7 @@ export function AboutSection() {
         {/* Inline code-style tech interests */}
         <div className={`mt-10 transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           <span className="text-muted-foreground text-xs tracking-widest uppercase block mb-4">
-            {"// interests.toml"}
+            {"// interests"}
           </span>
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
             {[

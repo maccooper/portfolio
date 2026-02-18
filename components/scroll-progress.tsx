@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useRef, useCallback } from "react"
 
-const SECTION_LABELS = ["init", "about", "xp", "skills", "contact", "END"]
+const SECTION_IDS = ["init", "about", "xp", "skills", "end"]
+const SECTION_LABELS = ["init", "about", "xp", "skills", "END"]
 
 function generateHexLine(addr: number): string {
   const hex = addr.toString(16).toUpperCase().padStart(4, "0")
@@ -12,6 +13,7 @@ function generateHexLine(addr: number): string {
 export function ScrollProgress() {
   const [progress, setProgress] = useState(0)
   const [visible, setVisible] = useState(false)
+  const [sectionIndex, setSectionIndex] = useState(0)
   const rafRef = useRef<number>(0)
 
   const handleScroll = useCallback(() => {
@@ -23,6 +25,19 @@ export function ScrollProgress() {
       const scrolled = docHeight > 0 ? scrollTop / docHeight : 0
       setProgress(scrolled)
       setVisible(scrollTop > 80)
+
+      const triggerY = window.scrollY + window.innerHeight * 0.4
+      let activeIdx = 0
+      for (let i = 0; i < SECTION_IDS.length; i++) {
+        const el = document.getElementById(`section-${SECTION_IDS[i]}`)
+        if (!el) continue
+        const rect = el.getBoundingClientRect()
+        const top = rect.top + window.scrollY
+        if (triggerY < top) break           // not yet reached
+        activeIdx = i                        // this section's top passed trigger
+        if (triggerY < top + rect.height) break  // trigger is inside this section
+      }
+      setSectionIndex(activeIdx)
     })
   }, [])
 
@@ -43,12 +58,6 @@ export function ScrollProgress() {
 
   // Current read-head position (index in the hex lines)
   const headIndex = Math.floor(progress * (totalTicks - 1))
-
-  // Current section label
-  const sectionIndex = Math.min(
-    Math.floor(progress * SECTION_LABELS.length),
-    SECTION_LABELS.length - 1
-  )
 
   return (
     <>
@@ -72,50 +81,51 @@ export function ScrollProgress() {
           {/* Background line */}
           <div className="absolute left-1/2 top-16 bottom-16 w-[1px] -translate-x-1/2 bg-border" />
 
-          {/* Orange fill */}
+          {/* Orange fill — same coordinate formula as read-head */}
           <div
             className="absolute left-1/2 top-16 w-[1px] -translate-x-1/2 bg-primary/60 transition-[height] duration-100 ease-out"
             style={{
-              height: `calc(${progress * 100}% * (100% - 128px) / 100%)`,
+              height: `calc(${progress} * (100% - 128px))`,
             }}
           />
 
-          {/* Hex address ticks */}
-          <div className="relative flex h-full flex-col justify-between py-0">
-            {hexLines.map((hex, i) => {
-              const isActive = i <= headIndex
-              const isHead = i === headIndex
-              return (
+          {/* Hex address ticks — absolutely positioned using same formula as read-head */}
+          {hexLines.map((hex, i) => {
+            const tickProgress = i / (totalTicks - 1)
+            const isActive = i <= headIndex
+            const isHead = i === headIndex
+            return (
+              <div
+                key={i}
+                className="absolute flex items-center gap-2 transition-all duration-200"
+                style={{
+                  top: `calc(64px + ${tickProgress} * (100% - 128px))`,
+                  transform: "translateY(-50%)",
+                }}
+              >
                 <div
-                  key={i}
-                  className="flex items-center gap-2 transition-all duration-200"
+                  className={`h-[1px] transition-all duration-200 ${
+                    isHead
+                      ? "w-3 bg-primary"
+                      : isActive
+                        ? "w-2 bg-primary/40"
+                        : "w-1.5 bg-border"
+                  }`}
+                />
+                <span
+                  className={`text-[9px] font-mono tabular-nums tracking-tight transition-all duration-200 select-none ${
+                    isHead
+                      ? "text-primary"
+                      : isActive
+                        ? "text-muted-foreground/60"
+                        : "text-muted-foreground/20"
+                  }`}
                 >
-                  {/* Tick mark */}
-                  <div
-                    className={`h-[1px] transition-all duration-200 ${
-                      isHead
-                        ? "w-3 bg-primary"
-                        : isActive
-                          ? "w-2 bg-primary/40"
-                          : "w-1.5 bg-border"
-                    }`}
-                  />
-                  {/* Hex label */}
-                  <span
-                    className={`text-[9px] font-mono tabular-nums tracking-tight transition-all duration-200 select-none ${
-                      isHead
-                        ? "text-primary"
-                        : isActive
-                          ? "text-muted-foreground/60"
-                          : "text-muted-foreground/20"
-                    }`}
-                  >
-                    {hex}
-                  </span>
-                </div>
-              )
-            })}
-          </div>
+                  {hex}
+                </span>
+              </div>
+            )
+          })}
 
           {/* Glowing read-head */}
           <div

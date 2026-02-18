@@ -169,9 +169,6 @@ export function TerminalHero() {
             <div className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
             <div className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
             <span className="ml-3 text-xs text-muted-foreground">mac@cooper ~</span>
-            <span className="ml-auto text-[10px] text-muted-foreground/40 tabular-nums">
-              {TERMINAL_ROWS} rows
-            </span>
           </div>
         </div>
 

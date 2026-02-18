@@ -45,7 +45,7 @@ export function SkillsSection() {
       <div className="mx-auto max-w-3xl">
         <div className={`mb-10 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           <span className="text-muted-foreground text-xs tracking-widest uppercase">
-            {"// skills --list"}
+            {"// skills"}
           </span>
           <div className="mt-2 h-[1px] w-12 bg-primary" />
         </div>
