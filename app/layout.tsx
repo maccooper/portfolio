@@ -1,14 +1,16 @@
 import type { Metadata, Viewport } from 'next'
-import { JetBrains_Mono, Inter } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+})
 
 export const metadata: Metadata = {
-  title: 'Software Engineer | Portfolio',
-  description: 'Junior software engineer based in BC. Systems programming, interpreters, game engines, and CLI tooling.',
+  title: 'Mac Cooper - Software Engineer',
+  description: 'Software engineer based in BC. Systems programming, interpreters, game engines, and CLI tooling.',
   icons: {
     icon: [
       {
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#1c1c22',
+  themeColor: '#0d0d0d',
 }
 
 export default function RootLayout({
@@ -39,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${_inter.variable} ${_jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${jetbrainsMono.variable} font-mono antialiased`}>
         {children}
         <Analytics />
       </body>
