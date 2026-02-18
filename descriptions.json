@@ -21,5 +21,7 @@
     "qr": "wrote QR code generation software",
     "iot": "built an IoT pipeline for live remote vehicle telemetry",
     "battlesnake": "built an AI to play the game snake",
-    "netflix": "rebuilt Netflix's movie recommendation classifier"
+    "netflix": "rebuilt Netflix's movie recommendation classifier",
+    "helix": "building a hex-grid strategy game in Go",
+    "loanshark": "shipped a debt-tracking app with auth and a postgres backend"
 }
