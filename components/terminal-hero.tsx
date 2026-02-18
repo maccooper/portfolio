@@ -22,14 +22,16 @@ const STATIC_LINES: StaticLine[] = [
 // Must match exactly what `bash show-projects.sh` produces.
 // Source of truth is descriptions.json — this derives from it at build time.
 const LOOP_CMD = 'ls projects/ | while read p; do jq -r ".$p" descriptions.json; sleep 1.5; done'
-const DESCRIPTIONS: string[] = Object.values(descriptionsData)
+const DESCRIPTIONS: string[] = (Object.entries(descriptionsData) as [string, unknown][])
+  .filter(([k]) => !k.startsWith("_"))
+  .map(([, v]) => v as string)
 
 const SPEEDS = {
   cmd: 38,
   output: 22,
   delete: 14,
   linePause: 220,
-  descPause: 1800,
+  descPause: 1500,
 } as const
 
 type Phase = "static" | "cmd" | "typing" | "pausing" | "deleting"

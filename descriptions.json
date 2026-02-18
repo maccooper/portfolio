@@ -1,5 +1,25 @@
 {
-  "spotify": "built a Spotify extension — add your description here",
-  "interpreter": "built a bytecode interpreter — add your description here",
-  "gameengine": "built a game engine — add your description here"
+    "_note": "top-level string keys are active — they feed the terminal and need a matching dir in projects/. Promote from _candidates to activate.",
+    "_candidates": {
+        "_skip": {
+            "polygon-map": "React UX app — interesting angle but off-brand for a systems portfolio",
+            "azure": "built a CLI that reads/writes Azure DevOps tickets as markdown",
+            "epbc_assessment": "homework submission — thin on its own",
+            "loanshark": "unclear depth, revisit",
+            "AdventofCode": "generic, everyone has it — only worth adding if the solutions are interesting"
+        }
+    },
+    "spotify": "built an extension to Spotify",
+    "shell": "built a mini shell in C",
+    "avr": "wrote bare-metal firmware in AVR assembly",
+    "webserver": "wrote an HTTP server in C",
+    "raytracer": "built a ray tracer",
+    "threads": "wrote a threaded airline check-in sim",
+    "leetcode": "built local neovim/cli LeetCode tooling",
+    "moviebox": "built a movie database API",
+    "devdigest": "deployed a customizeable Hacker News filter site",
+    "qr": "wrote QR code generation software",
+    "iot": "built an IoT pipeline for live remote vehicle telemetry",
+    "battlesnake": "built an AI to play the game snake",
+    "netflix": "rebuilt Netflix's movie recommendation classifier"
 }
