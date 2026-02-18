@@ -137,13 +137,7 @@ export function TerminalHero() {
 
   return (
     <section className="flex min-h-[100dvh] items-center justify-center px-4 py-20 sm:px-6">
-      <div
-          className="w-full max-w-3xl"
-          style={{
-            boxShadow:
-              "0 0 25px rgba(255,106,0,0.07), 0 0 80px rgba(255,106,0,0.05), 0 0 180px rgba(255,106,0,0.03)",
-          }}
-        >
+      <div className="w-full max-w-3xl">
         {/* Terminal chrome */}
         <div className="rounded-t-sm border border-border bg-secondary">
           <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border">
@@ -170,11 +164,11 @@ export function TerminalHero() {
               line.prefix === "~" ? (
                 <div key={i} className="flex items-start gap-2 text-sm leading-relaxed md:text-base">
                   <span className="text-primary select-none shrink-0">~ $</span>
-                  <span className="text-foreground break-all">{line.cmd}</span>
+                  <span className="text-[#888] break-all">{line.cmd}</span>
                 </div>
               ) : (
                 <div key={i} className="text-sm leading-relaxed md:text-base">
-                  <span className="text-muted-foreground pl-6">{line.output}</span>
+                  <span className="text-[#d4d4d4] pl-6">{line.output}</span>
                 </div>
               )
             )}
@@ -184,14 +178,14 @@ export function TerminalHero() {
               currentStaticLine.prefix === "~" ? (
                 <div className="flex items-start gap-2 text-sm leading-relaxed md:text-base">
                   <span className="text-primary select-none shrink-0">~ $</span>
-                  <span className="text-foreground break-all">
+                  <span className="text-[#888] break-all">
                     {staticText}
                     <span className="inline-block w-[7px] h-[1.1em] ml-0.5 bg-primary align-middle animate-blink" />
                   </span>
                 </div>
               ) : (
                 <div className="text-sm leading-relaxed md:text-base">
-                  <span className="text-muted-foreground pl-6">
+                  <span className="text-[#d4d4d4] pl-6">
                     {staticText}
                     <span className="inline-block w-[7px] h-[1.1em] ml-0.5 bg-primary align-middle animate-blink" />
                   </span>
@@ -203,7 +197,7 @@ export function TerminalHero() {
             {showCmd && (
               <div className="flex items-start gap-2 text-sm leading-relaxed md:text-base">
                 <span className="text-primary select-none shrink-0">~ $</span>
-                <span className="text-foreground break-all">
+                <span className="text-[#888] break-all">
                   {LOOP_CMD.slice(0, cmdCharIdx)}
                   {phase === "cmd" && (
                     <span className="inline-block w-[7px] h-[1.1em] ml-0.5 bg-primary align-middle animate-blink" />
@@ -215,7 +209,7 @@ export function TerminalHero() {
             {/* Cycling project description — types in, pauses, deletes, repeats */}
             {showDesc && (
               <div className="text-sm leading-relaxed md:text-base">
-                <span className="text-muted-foreground pl-6">
+                <span className="text-[#d4d4d4] pl-6">
                   {descText}
                   <span className="inline-block w-[7px] h-[1.1em] ml-0.5 bg-primary align-middle animate-blink" />
                 </span>
