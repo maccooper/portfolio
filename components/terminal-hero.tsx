@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
+import { ArrowDown } from "lucide-react"
 import descriptionsData from "@/descriptions.json"
 
 type StaticLine =
@@ -136,8 +137,17 @@ export function TerminalHero() {
     visibleLines < STATIC_LINES.length ? STATIC_LINES[visibleLines] : null
 
   return (
-    <section className="flex min-h-[100dvh] items-center justify-center px-4 py-20 sm:px-6">
-      <div className="w-full max-w-3xl">
+    <section className="relative flex min-h-[100dvh] items-center justify-center px-4 py-20 sm:px-6">
+      <div
+          className="w-full max-w-3xl"
+          style={{
+            boxShadow: [
+              "0 0 12px rgba(255,106,0,0.06)",   /* tight surface emission — all edges */
+              "0 10px 30px rgba(255,106,0,0.04)", /* medium glow, pushed down — bottom bleed */
+              "0 22px 50px rgba(255,106,0,0.025)",/* wide ambient pool — light on the floor below */
+            ].join(", "),
+          }}
+        >
         {/* Terminal chrome */}
         <div className="rounded-t-sm border border-border bg-secondary">
           <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border">
@@ -219,6 +229,14 @@ export function TerminalHero() {
           </div>
         </div>
       </div>
+      <a
+        href="#about"
+        aria-label="Scroll to content"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-[#444] hover:text-[#888] transition-colors duration-300"
+      >
+        <span className="font-mono text-[10px] tracking-widest uppercase">scroll</span>
+        <ArrowDown className="h-3.5 w-3.5 animate-bounce" />
+      </a>
     </section>
   )
 }
