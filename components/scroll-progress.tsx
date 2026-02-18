@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react"
 
-const SECTION_LABELS = ["init", "about", "xp", "skills", "contact", "EOF"]
+const SECTION_LABELS = ["init", "about", "xp", "skills", "contact", "END"]
 
 function generateHexLine(addr: number): string {
   const hex = addr.toString(16).toUpperCase().padStart(4, "0")
@@ -35,11 +35,10 @@ export function ScrollProgress() {
     }
   }, [handleScroll])
 
-  // Generate a column of hex addresses
-  const totalTicks = 24
+  // 16 ticks at 0x1111 intervals — lands exactly on 0x0000, 0x1111, 0x2222 ... 0xFFFF
+  const totalTicks = 16
   const hexLines = Array.from({ length: totalTicks }, (_, i) => {
-    const addr = Math.floor((i / totalTicks) * 0xffff)
-    return generateHexLine(addr)
+    return generateHexLine(i * 0x1111)
   })
 
   // Current read-head position (index in the hex lines)
@@ -151,12 +150,6 @@ export function ScrollProgress() {
             </span>
           </div>
 
-          {/* Percentage readout at bottom */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-0.5">
-            <span className="text-[10px] text-primary font-mono tabular-nums">
-              {Math.round(progress * 100)}%
-            </span>
-          </div>
         </div>
       </div>
 
