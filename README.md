@@ -25,3 +25,13 @@ pnpm dev
 ```bash
 jq -r '.[].description' projects.json
 ```
+
+## TODO
+
+add current job to exp section
+add linking to socials
+shrink spacing between sections
+scroll rework:
+- left side mobile scroll
+- proper syncing between full-sized scroll section and view section
+ship it
