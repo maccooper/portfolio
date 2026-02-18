@@ -21,7 +21,7 @@ export function AboutSection() {
     <section
       ref={ref}
       id="about"
-      className="relative px-6 py-24 md:py-32 lg:pl-12"
+      className="relative px-6 py-14 md:py-20 lg:pl-12"
     >
       <div className="mx-auto max-w-3xl">
         {/* Section header styled as a comment */}

@@ -11,7 +11,7 @@
     },
     "spotify": "built an extension to Spotify",
     "shell": "built a mini shell in C",
-    "avr": "wrote bare-metal firmware in AVR assembly",
+    "avr": "wrote bare-metal firmware in Assembly",
     "webserver": "wrote an HTTP server in C",
     "raytracer": "built a ray tracer",
     "threads": "wrote a threaded airline check-in sim",
@@ -23,5 +23,5 @@
     "battlesnake": "built an AI to play the game snake",
     "netflix": "rebuilt Netflix's movie recommendation classifier",
     "helix": "building a hex-grid strategy game in Go",
-    "loanshark": "shipped a debt-tracking app with auth and a postgres backend"
+    "loanshark": "built a debt-tracking app for friends"
 }

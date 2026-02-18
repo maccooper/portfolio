@@ -40,7 +40,7 @@ export function SkillsSection() {
     <section
       ref={ref}
       id="skills"
-      className="relative px-6 py-24 md:py-32 lg:pl-12"
+      className="relative px-6 py-14 md:py-20 lg:pl-12"
     >
       <div className="mx-auto max-w-3xl">
         <div className={`mb-10 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
