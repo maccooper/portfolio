@@ -16,7 +16,7 @@ const STATIC_LINES: StaticLine[] = [
   { prefix: "~", cmd: "echo $LOCATION" },
   { prefix: "", output: "British Columbia, Canada" },
   { prefix: "~", cmd: "grep 'interests' README.md" },
-  { prefix: "", output: "## interests: algorithms, systems programming, compilers, graphics, security, game engines" },
+  { prefix: "", output: "## interests: algorithms, systems programming, game engines, graphics, security, compilers" },
 ]
 
 // Source of truth is projects.json — this derives from it at build time.

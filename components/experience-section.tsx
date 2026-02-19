@@ -5,10 +5,18 @@ import { useEffect, useRef, useState } from "react"
 const EXPERIENCES = [
   {
     role: "Software Engineer",
+    company: "EducationPlannerBC",
+    period: "Current",
+    description:
+      "Building APIs for BC's centralized university application platform. Worked on features supporting a transfer assessment tool and automated data upload processes. Helped consolidate legacy microservices towards a modular monolithic architecture. Defined SQL standards and implemented linting in CI via GitHub Actions with fixtures to protect config. Grew curiosity about static analyzers and how tooling can enforce what developers won't.",
+    tech: ["Go", "SQL", "Java", "GitHub Actions", "CI/CD"],
+  },
+  {
+    role: "Software Engineer",
     company: "Dometic",
     period: "Previous",
     description:
-      "Wrote embedded C++ for microcontrollers in fleet trucks — capturing solar yield, location, and power draw, then transmitting over satellite for centralized real-time monitoring. Built the full pipeline: firmware on the device, through Azure IoT Hub and Data Analytics, into CosmosDB. The project was mine end to end. No one was walking me through it.",
+      "Wrote embedded C++ firmware for fleet truck telemetry, capturing solar yield, location, and power draw, then transmitting via data SIM for centralized real-time monitoring. Built the full pipeline: firmware on the device, through Azure IoT Hub and Data Analytics, into CosmosDB. No one was walking me through it.",
     tech: ["C++", "Azure IoT", "CosmosDB", "SQL", "Python", "Power BI"],
   },
   {
@@ -16,7 +24,7 @@ const EXPERIENCES = [
     company: "Eddyfi Robotics",
     period: "Previous",
     description:
-      "Joined after Eddyfi acquired Inuktun. Built ETL pipelines to merge two companies' inventory systems into a standardized format — the kind of data work that breaks if you're not precise about it. Also built a QR-based part retrieval system tied into the inventory backend to make warehouse lookups less painful.",
+      "Joined after Eddyfi acquired Inuktun. Built ETL pipelines to merge two companies' inventory systems into a standardized format. Also built a QR-based part retrieval system tied into the inventory backend to make warehouse lookups less painful.",
     tech: ["Python", "SQL", "VB", "C#"],
   },
 ]
@@ -40,7 +48,7 @@ export function ExperienceSection() {
     <section
       ref={ref}
       id="experience"
-      className="relative px-6 py-14 md:py-20 lg:pl-12"
+      className="relative px-4 sm:px-6 pt-8 pb-0 md:pt-14 lg:px-12"
     >
       <div className="mx-auto max-w-3xl">
         <div className={`mb-10 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
@@ -69,7 +77,7 @@ export function ExperienceSection() {
                   <h3 className="text-primary text-sm md:text-base font-semibold">
                     {exp.company}
                   </h3>
-                  <p className="text-foreground text-xs">
+                  <p className="text-muted-foreground text-xs">
                     {exp.role}
                   </p>
                 </div>
@@ -78,7 +86,7 @@ export function ExperienceSection() {
                 </span>
               </div>
 
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+              <p className="text-foreground text-sm leading-relaxed mb-4">
                 {exp.description}
               </p>
 

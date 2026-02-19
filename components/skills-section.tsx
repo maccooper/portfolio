@@ -5,19 +5,19 @@ import { useEffect, useRef, useState } from "react"
 const SKILL_CATEGORIES = [
   {
     label: "languages",
-    items: ["Go", "C", "C++", "Python", "TypeScript", "Rust"],
+    items: ["Go", "C", "C++", "Python", "TypeScript", "Java", "C#", "Assembly", "Rust"],
   },
   {
     label: "systems",
-    items: ["Linux", "Embedded", "RTOS", "POSIX", "Networking"],
+    items: ["Linux", "Embedded", "Networking", "Concurrency"],
   },
   {
     label: "tools",
-    items: ["Git", "Docker", "GDB", "Valgrind", "Make/CMake"],
+    items: ["Git", "Docker", "SQL", "GitHub Actions", "Bash", "Make/CMake"],
   },
   {
     label: "domains",
-    items: ["Compilers", "Interpreters", "Game Engines", "IoT", "ETL"],
+    items: ["REST / APIs", "IoT", "ETL", "Graphics", "Game Dev", "CLI Tooling"],
   },
 ]
 
@@ -40,7 +40,7 @@ export function SkillsSection() {
     <section
       ref={ref}
       id="skills"
-      className="relative px-6 py-14 md:py-20 lg:pl-12"
+      className="relative px-4 sm:px-6 py-8 md:py-14 lg:px-12"
     >
       <div className="mx-auto max-w-3xl">
         <div className={`mb-10 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>

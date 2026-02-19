@@ -2,7 +2,7 @@
 
 Personal portfolio. Terminal-themed, systems-focused.
 
-## interests: algorithms, systems programming, compilers, graphics, security, game engines
+## interests: algorithms, systems programming, game engines, graphics, security, compilers
 
 ## Setup
 
@@ -28,9 +28,7 @@ jq -r '.[].description' projects.json
 
 ## TODO
 
-add current job to exp section
 add linking to socials
-shrink spacing between sections
 scroll rework:
 - left side mobile scroll
 - proper syncing between full-sized scroll section and view section
