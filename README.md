@@ -28,8 +28,5 @@ jq -r '.[].description' projects.json
 
 ## TODO
 
-add linking to socials
-scroll rework:
-- left side mobile scroll
 - proper syncing between full-sized scroll section and view section
 ship it

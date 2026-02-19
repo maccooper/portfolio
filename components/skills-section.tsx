@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 const SKILL_CATEGORIES = [
   {
     label: "languages",
-    items: ["Go", "C", "C++", "Python", "TypeScript", "Java", "C#", "Assembly", "Rust"],
+    items: ["Go", "C", "C++", "Python", "JavaScript", "Java", "C#", "Assembly", "Rust"],
   },
   {
     label: "systems",
