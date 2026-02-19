@@ -10,10 +10,10 @@ const NAV_ITEMS = [
 ]
 
 const CONTACT_LINKS = [
-  { icon: Github, label: "GitHub", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Mail, label: "Email", href: "mailto:mac@example.com" },
-  { icon: FileText, label: "Resume", href: "#" },
+  { icon: Github, label: "GitHub", href: "https://github.com/maccooper" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mac-cooper-54625b163/" },
+  { icon: Mail, label: "Email", href: "mailto:Mackenzie.Cooper99@gmail.com" },
+  { icon: FileText, label: "Resume", href: "/maccooper_resume.pdf" },
 ]
 
 export function TerminalNav() {

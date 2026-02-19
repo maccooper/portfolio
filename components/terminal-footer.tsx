@@ -1,10 +1,10 @@
 import { Github, Linkedin, Mail, FileText } from "lucide-react"
 
 const LINKS = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:mac@example.com", label: "Email" },
-  { icon: FileText, href: "#", label: "Resume" },
+  { icon: Github, href: "https://github.com/maccooper", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/mac-cooper-54625b163/", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:Mackenzie.Cooper99@gmail.com", label: "Email" },
+  { icon: FileText, href: "/maccooper_resume.pdf", label: "Resume" },
 ]
 
 export function TerminalFooter() {
@@ -25,10 +25,8 @@ export function TerminalFooter() {
             </a>
           ))}
         </div>
-        <div className="text-xs text-muted-foreground">
-          <span className="text-primary">Mac Cooper</span>
-          <span className="mx-2 text-border">|</span>
-          <span>2025</span>
+        <div className="text-xs">
+          <span className="text-primary font-mono">0x0D0A</span>
         </div>
       </div>
     </footer>
