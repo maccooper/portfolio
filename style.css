@@ -28,6 +28,10 @@ nav {
     right: 0;
 }
 
+nav a:hover {
+    color: var(--accent);
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -39,7 +43,16 @@ nav span {
 }
 
 .section-heading {
-    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.section-heading span {
+    color: var(--accent);
+
+}
+
+.sub-section-heading {
+    font-size: 1rem;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 2rem;
@@ -51,3 +64,9 @@ nav span {
     padding: 4rem 1.5rem;
 }
 
+p {
+    margin-bottom: 1rem;
+}
+p.muted {
+    color:var(--muted);
+}
