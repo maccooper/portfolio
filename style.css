@@ -118,6 +118,19 @@ p.muted {
     color: var(--muted);
 }
 
+.interest-card {
+    background: var(--raised);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.5rem;
+    cursor: default;
+    transition: border-color 200ms, color 200ms;
+}
+
+.interest-card:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
