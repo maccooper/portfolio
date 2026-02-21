@@ -72,21 +72,21 @@ nav span {
 }
 
 .scanlines {
-    background-image: repeating-linear-gradient(
-        0deg,
-        transparent, transparent 1px,
-        rgba(255,255,255,0.03) 1px, rgba(255,255,255,0.03) 2px
-    );
+    background-image: repeating-linear-gradient(0deg,
+            transparent, transparent 1px,
+            rgba(255, 255, 255, 0.03) 1px, rgba(255, 255, 255, 0.03) 2px);
     opacity: 0.03;
 }
 
 .vignette {
-    background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.4) 100%);
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
 }
 
 .section-heading {
+    font-size: 1.1rem;
+    font-weight: normal;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--accent);
     width: fit-content;
@@ -98,7 +98,8 @@ nav span {
 }
 
 .sub-section-heading {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-weight: normal;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 1rem;
@@ -107,7 +108,7 @@ nav span {
 .container {
     max-width: 48rem;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 2rem 1.5rem;
 }
 
 p {
@@ -127,6 +128,44 @@ p.muted {
     transition: border-color 200ms;
 }
 
+.xp-meta span {
+    font-size:0.8rem;
+    color: var (--muted);
+}
+.xp-card {
+    font-size:0.9rem;
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    transition: border-color 700ms;
+    margin-bottom: 1rem;
+}
+
+.xp-company {
+    color: var(--accent);
+}
+
+.xp-card:hover {
+    border-color: rgba(255, 106, 0, 0.5);
+}
+
+.xp-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+}
+
+.xp-meta p { margin-bottom: 0; }
+
+.tech-tags ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+}
+
 .interest-card:hover {
     border-color: var(--accent);
 }
@@ -136,6 +175,7 @@ p.muted {
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
 }
+
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -173,5 +213,11 @@ p.muted {
 }
 
 @media (max-width: 768px) {
-    .grid-2 { grid-template-columns: 1fr; }
+    .grid-1 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
 }
