@@ -121,17 +121,22 @@ p.muted {
 .interest-card {
     background: var(--raised);
     border: 1px solid var(--border);
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
     cursor: default;
-    transition: border-color 200ms, color 200ms;
+    transition: border-color 200ms;
 }
 
 .interest-card:hover {
-    color: var(--accent);
     border-color: var(--accent);
 }
 
-.skills-grid {
+.grid-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+.grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
@@ -168,5 +173,5 @@ p.muted {
 }
 
 @media (max-width: 768px) {
-    .skills-grid { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
 }
