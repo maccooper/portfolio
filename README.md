@@ -11,3 +11,5 @@ I feel that embracing the new layer of abstraction is important, but so is beign
 Failure to embrace these layers pragmatically will lead to deteriation of any code you touch.
 
 #### Interests: 
+
+interests: algorithms, systems programming, game engines, graphics,
