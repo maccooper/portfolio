@@ -112,6 +112,10 @@ a {
     display: none;
 }
 
+.t-prompt { color: var(--primary); user-select: none; flex-shrink: 0; }
+.t-cmd    { color: #888; word-break: break-all; }
+.t-output { color: #d4d4d4; padding-left: 1.5rem; }
+
 
 button {
     background: none;

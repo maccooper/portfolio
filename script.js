@@ -28,15 +28,58 @@ function initTerminal() {
 
     const state = {
         phase: Phase.STATIC,
-        tapeHead: 0,
-        lineHead: 0,
+        lineIdx: 0,
+        charIdx: 0,
         visibleText: '',
         descIdx: 0,
+        descCharIdx: 0,
     }
 
-      function render() {
-          //#TODO: Develop renderer for FSM
-      }
+    function render() {
+        const lines = []
+        for (let i = 0; i < state.lineIdx; i++) {
+            if (STATIC_LINES[i].prompt) {
+                lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${STATIC_LINES[i].text}</span></div>`)
 
+            } else {
+                lines.push(`<div class="t-line"><span class="t-output">${STATIC_LINES[i].text}</span></div>`)
+            }
+        }
+        if (state.phase == Phase.STATIC && STATIC_LINES[state.lineIdx] != null) {
+            if (STATIC_LINES[state.lineIdx].prompt) {
+                lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${state.visibleText}</span></div>`)
+            } else {
+                lines.push(`<div class="t-line"><span class="t-output">${state.visibleText}</span></div>`)
+            }
+        }
+        body.innerHTML = lines.join('')
+    }
 
+    function advance() {
+        //advance on single tick of our 
+        //push char pointers, roll over.
+
+        if (state.charIdx < STATIC_LINES[state.lineIdx].text.length) {
+            //type one more character
+            state.visibleText += STATIC_LINES[state.lineIdx].text[state.charIdx];
+            state.charIdx++;
+            render();
+            if (STATIC_LINES[state.lineIdx].prompt) {
+                setTimeout(advance, SPEEDS.cmd);
+            } else {
+                setTimeout(advance, SPEEDS.output);
+            }
+        } else {
+            state.charIdx = 0;
+            state.lineIdx++;
+            state.visibleText = '';
+            setTimeout(advance, SPEEDS.linePause);
+            if (state.lineIdx > STATIC_LINES.length) {
+                state.phase++
+            }
+        }
+
+    }
 }
+
+
