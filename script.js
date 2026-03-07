@@ -22,8 +22,9 @@ const Phase = Object.freeze({
 })
 
 
-function initTerminal() {
+async function initTerminal() {
     const body = document.getElementById('terminal-body')
+    const projects = await fetch('/projects.json').then(res => res.json());
     if (!body) return
 
     const state = {
@@ -31,8 +32,6 @@ function initTerminal() {
         lineIdx: 0,
         charIdx: 0,
         visibleText: '',
-        descIdx: 0,
-        descCharIdx: 0,
     }
 
     function render() {
@@ -52,15 +51,21 @@ function initTerminal() {
                 lines.push(`<div class="t-line"><span class="t-output">${state.visibleText}</span></div>`)
             }
         }
+        if (state.phase == Phase.CMD) {
+            lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${state.visibleText}</span></div>`)
+        } else if (state.phase != Phase.STATIC) {
+            lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${LOOP_CMD}</span></div>`)
+        }
+        if (state.phase == Phase.TYPING || state.phase == Phase.DELETING || state.phase == Phase.DELETING) {
+            lines.push(`<div class="t-line"><span class="t-output">${state.visibleText}</span></div>`)
+        }
         body.innerHTML = lines.join('')
     }
 
-    function advance() {
-        //advance on single tick of our 
-        //push char pointers, roll over.
+    function staticPhase() {
+        if (state.lineIdx >= STATIC_LINES.length) return
 
         if (state.charIdx < STATIC_LINES[state.lineIdx].text.length) {
-            //type one more character
             state.visibleText += STATIC_LINES[state.lineIdx].text[state.charIdx];
             state.charIdx++;
             render();
@@ -73,13 +78,77 @@ function initTerminal() {
             state.charIdx = 0;
             state.lineIdx++;
             state.visibleText = '';
-            setTimeout(advance, SPEEDS.linePause);
-            if (state.lineIdx > STATIC_LINES.length) {
-                state.phase++
+            if (state.lineIdx >= STATIC_LINES.length) {
+                state.phase = Phase.CMD
             }
+            setTimeout(advance, SPEEDS.linePause);
+        }
+    }
+
+    function cmd() {
+        if (state.charIdx < LOOP_CMD.length) {
+            state.visibleText += LOOP_CMD[state.charIdx];
+            state.charIdx++;
+            render();
+            setTimeout(advance, SPEEDS.cmd);
+        } else {
+            state.charIdx = 0;
+            state.visibleText = '';
+            state.phase = Phase.TYPING;
+            setTimeout(advance, SPEEDS.linePause);
         }
 
     }
+
+    function typing() {
+        if (state.charIdx < projects[state.lineIdx].description.length) {
+            state.visibleText += projects[state.lineIdx].description[state.charIdx];
+            state.charIdx++;
+            setTimeout(advance, SPEEDS.output);
+            render()
+        } else {
+            state.phase = Phase.PAUSING;
+            setTimeout(advance, SPEEDS.descPause);
+        }
+
+    }
+
+    function pausing() {
+        //idle animation
+        state.phase = Phase.DELETING;
+        setTimeout(advance, SPEEDS.descPause);
+    }
+
+    function deleting() {
+        if (state.charIdx > 0) {
+            state.visibleText = state.visibleText.slice(0, -1)
+            state.charIdx--;
+            setTimeout(advance, SPEEDS.output);
+            render()
+        } else {
+            state.charIdx = 0;
+            state.lineIdx = (state.lineIdx + 1) % projects.length;
+            state.phase = Phase.TYPING;
+            setTimeout(advance, SPEEDS.descPause);
+        }
+    }
+
+    const handlers = {
+        [Phase.STATIC]: staticPhase,
+        [Phase.CMD]: cmd,
+        [Phase.TYPING]: typing,
+        [Phase.PAUSING]: pausing,
+        [Phase.DELETING]: deleting,
+    }
+
+    function advance() {
+        handlers[state.phase]?.()
+    }
+
+    render()
+    advance()
 }
 
-
+document.addEventListener('DOMContentLoaded', () => {
+    initTerminal()
+})
