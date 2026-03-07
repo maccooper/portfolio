@@ -12,5 +12,6 @@
   { "name": "battlesnake", "description": "built an AI to play the game snake" },
   { "name": "netflix",     "description": "rebuilt Netflix's movie recommendation classifier" },
   { "name": "helix",       "description": "building a hex-grid strategy game in Go" },
-  { "name": "loanshark",   "description": "built a debt-tracking app for friends" }
+  { "name": "loanshark",   "description": "built a debt-tracking app for friends" },
+  { "name": "fsm",         "description": "built a finite state machine in javascript" }
 ]

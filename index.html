@@ -16,13 +16,36 @@
     <div class="scanlines"> </div>
     <div class="vignette"></div>
 
-    <nav>
-        <ul>
-            <li><a href="#about"><span>./</span>about</a></li>
-            <li><a href="#experience"><span>./</span>experience</a></li>
-            <li><a href="#skills"><span>./</span>skills</a></li>
-            <li><a href="#contact"><span>./</span>contact</a></li>
-        </ul>
+    <nav id="nav">
+
+        <button id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">&#8801;</button>
+
+        <div id="nav-mobile" hidden>
+            <a href="#about" class="nav-link"><span class="nav-prefix">./</span>about</a>
+            <a href="#experience" class="nav-link"><span class="nav-prefix">./</span>experience</a>
+            <a href="#skills" class="nav-link"><span class="nav-prefix">./</span>skills</a>
+            <div class="nav-divider"></div>
+            <a href="https://github.com/maccooper" target="_blank" rel="noopener noreferrer" class="nav-link"><span class="nav-prefix">./</span>github</a>
+            <a href="https://www.linkedin.com/in/mac-cooper-54625b163/" target="_blank" rel="noopener noreferrer" class="nav-link"><span class="nav-prefix">./</span>linkedin</a>
+            <a href="mailto:Mackenzie.Cooper99@gmail.com" class="nav-link"><span class="nav-prefix">./</span>email</a>
+            <a href="/public/maccooper_resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link"><span class="nav-prefix">./</span>cv</a>
+        </div>
+
+        <div id="nav-desktop">
+            <a href="#about" class="nav-link"><span class="nav-prefix">./</span>about</a>
+            <a href="#experience" class="nav-link"><span class="nav-prefix">./</span>experience</a>
+            <a href="#skills" class="nav-link"><span class="nav-prefix">./</span>skills</a>
+            <div id="contact-wrapper">
+                <button id="contact-btn" class="nav-link"><span class="nav-prefix">./</span>contact</button>
+                <div id="contact-dropdown" hidden>
+                    <a href="https://github.com/maccooper" target="_blank" rel="noopener noreferrer" class="nav-link"><span class="nav-prefix">./</span>github</a>
+                    <a href="https://www.linkedin.com/in/mac-cooper-54625b163/" target="_blank" rel="noopener noreferrer" class="nav-link"><span class="nav-prefix">./</span>linkedin</a>
+                    <a href="mailto:Mackenzie.Cooper99@gmail.com" class="nav-link"><span class="nav-prefix">./</span>email</a>
+                    <a href="/public/maccooper_resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link"><span class="nav-prefix">./</span>cv</a>
+                </div>
+            </div>
+        </div>
+
     </nav>
 
     <main>
@@ -42,6 +65,10 @@
                     text
                 </div>
             </div>
+            <a href="#about" class="scroll-cue" aria-label="Scroll to content">
+                <span class="scroll-label">scroll</span>
+                <span class="scroll-arrow">&#8595;</span>
+            </a>
         </section>
 
         <section id="about">

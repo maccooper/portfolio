@@ -6,7 +6,7 @@ const STATIC_LINES = [
     { prompt: true, text: 'echo $LOCATION' },
     { prompt: false, text: 'British Columbia, Canada' },
     { prompt: true, text: "grep 'interests' README.md" },
-    { prompt: false, text: '## interests: algorithms, systems programming, game engines, graphics, security, compilers' },
+    { prompt: false, text: 'interests: algorithms, systems programming, game engines, graphics, security, compilers' },
 ]
 
 const LOOP_CMD = "jq -r '.[].description' projects.json"
@@ -157,6 +157,52 @@ async function initTerminal() {
     advance()
 }
 
+function initNav() {
+    const hamburger  = document.getElementById('nav-hamburger')
+    const mobileMenu = document.getElementById('nav-mobile')
+    const contactBtn = document.getElementById('contact-btn')
+    const contactDropdown = document.getElementById('contact-dropdown')
+    const contactWrapper  = document.getElementById('contact-wrapper')
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            mobileMenu.hidden = true
+            hamburger.setAttribute('aria-expanded', 'false')
+            hamburger.textContent = '≡'
+            if (contactDropdown) contactDropdown.hidden = true
+        }
+    }, { passive: true })
+
+    hamburger.addEventListener('click', () => {
+        const open = !mobileMenu.hidden
+        mobileMenu.hidden = open
+        hamburger.setAttribute('aria-expanded', String(!open))
+        hamburger.textContent = open ? '≡' : '×'
+    })
+
+    mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.hidden = true
+            hamburger.setAttribute('aria-expanded', 'false')
+            hamburger.textContent = '≡'
+        })
+    })
+
+    if (contactBtn && contactDropdown) {
+        contactBtn.addEventListener('click', (e) => {
+            e.stopPropagation()
+            contactDropdown.hidden = !contactDropdown.hidden
+        })
+
+        document.addEventListener('mousedown', (e) => {
+            if (contactWrapper && !contactWrapper.contains(e.target)) {
+                contactDropdown.hidden = true
+            }
+        })
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initTerminal()
+    initNav()
 })
