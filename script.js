@@ -32,34 +32,42 @@ async function initTerminal() {
         lineIdx: 0,
         charIdx: 0,
         visibleText: '',
+        descIdx: 0,
+        descCharIdx: 0,
     }
 
     function render() {
         const lines = []
+        const cursor = '<span class="cursor"></span>'
+
         for (let i = 0; i < state.lineIdx; i++) {
             if (STATIC_LINES[i].prompt) {
                 lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${STATIC_LINES[i].text}</span></div>`)
-
             } else {
                 lines.push(`<div class="t-line"><span class="t-output">${STATIC_LINES[i].text}</span></div>`)
             }
         }
-        if (state.phase == Phase.STATIC && STATIC_LINES[state.lineIdx] != null) {
+
+        if (state.phase === Phase.STATIC && STATIC_LINES[state.lineIdx] != null) {
             if (STATIC_LINES[state.lineIdx].prompt) {
-                lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${state.visibleText}</span></div>`)
+                lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${state.visibleText}${cursor}</span></div>`)
             } else {
-                lines.push(`<div class="t-line"><span class="t-output">${state.visibleText}</span></div>`)
+                lines.push(`<div class="t-line"><span class="t-output">${state.visibleText}${cursor}</span></div>`)
             }
         }
-        if (state.phase == Phase.CMD) {
-            lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${state.visibleText}</span></div>`)
-        } else if (state.phase != Phase.STATIC) {
+
+        if (state.phase === Phase.CMD) {
+            lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${state.visibleText}${cursor}</span></div>`)
+        } else if (state.phase !== Phase.STATIC) {
             lines.push(`<div class="t-line"><span class="t-prompt">~ $</span><span class="t-cmd">${LOOP_CMD}</span></div>`)
         }
-        if (state.phase == Phase.TYPING || state.phase == Phase.DELETING || state.phase == Phase.DELETING) {
-            lines.push(`<div class="t-line"><span class="t-output">${state.visibleText}</span></div>`)
+
+        if (state.phase === Phase.TYPING || state.phase === Phase.PAUSING || state.phase === Phase.DELETING) {
+            lines.push(`<div class="t-line"><span class="t-output">${state.visibleText}${cursor}</span></div>`)
         }
+
         body.innerHTML = lines.join('')
+        body.scrollTop = body.scrollHeight
     }
 
     function staticPhase() {
@@ -101,9 +109,9 @@ async function initTerminal() {
     }
 
     function typing() {
-        if (state.charIdx < projects[state.lineIdx].description.length) {
-            state.visibleText += projects[state.lineIdx].description[state.charIdx];
-            state.charIdx++;
+        if (state.descCharIdx < projects[state.descIdx].description.length) {
+            state.visibleText += projects[state.descIdx].description[state.descCharIdx];
+            state.descCharIdx++;
             setTimeout(advance, SPEEDS.output);
             render()
         } else {
@@ -114,22 +122,22 @@ async function initTerminal() {
     }
 
     function pausing() {
-        //idle animation
         state.phase = Phase.DELETING;
-        setTimeout(advance, SPEEDS.descPause);
+        advance()
     }
 
     function deleting() {
-        if (state.charIdx > 0) {
+        if (state.descCharIdx > 0) {
             state.visibleText = state.visibleText.slice(0, -1)
-            state.charIdx--;
-            setTimeout(advance, SPEEDS.output);
+            state.descCharIdx--;
             render()
+            setTimeout(advance, SPEEDS.delete);
         } else {
-            state.charIdx = 0;
-            state.lineIdx = (state.lineIdx + 1) % projects.length;
+            state.descCharIdx = 0;
+            state.visibleText = '';
+            state.descIdx = (state.descIdx + 1) % projects.length;
             state.phase = Phase.TYPING;
-            setTimeout(advance, SPEEDS.descPause);
+            setTimeout(advance, SPEEDS.linePause);
         }
     }
 
