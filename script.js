@@ -24,7 +24,7 @@ const Phase = Object.freeze({
 
 async function initTerminal() {
     const body = document.getElementById('terminal-body')
-    const projects = await fetch('/projects.json').then(res => res.json());
+    const projects = await fetch('projects.json').then(res => res.json());
     if (!body) return
 
     const state = {
